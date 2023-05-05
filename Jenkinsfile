@@ -32,7 +32,6 @@ pipeline {
     stage('Deploying React.js container to Kubernetes') {
       steps {
         script {
-          sh "who am i"
           sh "ansible-playbook playbook.yaml"
         }
       }
