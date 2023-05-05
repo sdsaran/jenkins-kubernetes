@@ -13,7 +13,7 @@ pipeline {
     stage('Build image') {
       steps{
         script {
-          dockerImage = docker.build dockerimagename
+          dockerImage = docker.build dockerimagename + ":$BUILD_NUMBER"
         }
       }
     }
@@ -32,7 +32,8 @@ pipeline {
     stage('Deploying React.js container to Kubernetes') {
       steps {
         script {
-          sh "ansible-playbook playbook.yaml"
+          def image_id = dockerimagename + ":$BUILD_NUMBER"
+          sh "ansible-playbook playbook.yaml --extra-vars \"image_id=${image_id}\""
         }
       }
     }

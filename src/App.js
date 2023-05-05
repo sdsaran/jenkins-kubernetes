@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React - Edited for review - checking the reload
+          Learn React - Edited for review - checking the reload - buildid
         </a>
       </header>
     </div>
